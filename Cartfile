@@ -1,0 +1,2 @@
+github "SneakersAgencyLLC/SwiftyStateMachine" "develop"
+github "ReactiveX/RxSwift" "master"
