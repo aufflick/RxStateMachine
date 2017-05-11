@@ -37,8 +37,6 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject : A
                 sm.handleEvent(event)
             }, onError: { (error) in
                 observable.onError(error)
-            }, onCompleted: {
-                observable.onCompleted()
             }).addDisposableTo(eventsDisposable!)
             
             return Disposables.create {
@@ -68,8 +66,6 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject : A
                 sm.handleEvent(event)
             }, onError: { (error) in
                 observable.onError(error)
-            }, onCompleted: { 
-                observable.onCompleted()
             }).addDisposableTo(eventsDisposable!)
             
             return Disposables.create {
@@ -108,8 +104,6 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject == 
                 sm.handleEvent(event)
             }, onError: { (error) in
                 observable.onError(error)
-            }, onCompleted: {
-                observable.onCompleted()
             }).addDisposableTo(eventsDisposable!)
             
             return Disposables.create {
@@ -139,8 +133,6 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject == 
                 sm.handleEvent(event)
             }, onError: { (error) in
                 observable.onError(error)
-            }, onCompleted: {
-                observable.onCompleted()
             }).addDisposableTo(eventsDisposable!)
             
             return Disposables.create {
