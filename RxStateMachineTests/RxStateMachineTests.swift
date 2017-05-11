@@ -180,7 +180,7 @@ class TerminatingRxStateMachineTests: XCTestCase {
         
         states = StateMachine<StateMachineSchema<Number, Operation, NumberKeeper>>.terminatingRx(schema: schema,
                                             subject: keeper,
-                                            terminalState: Number.three,
+                                            terminalStates: [Number.three],
                                             events: events.asObservable().filter { $0 != nil }.map { $0! })
         
         states.subscribe(onNext: { newState in

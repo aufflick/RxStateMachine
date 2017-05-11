@@ -12,7 +12,7 @@ import RxSwift
 
 extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject : Any, Schema.State : Equatable {
     
-    public static func terminatingRx(schema: Schema, subject: Schema.Subject, terminalState: Schema.State, events: Observable<Schema.Event>) -> Observable<Schema.State> {
+    public static func terminatingRx(schema: Schema, subject: Schema.Subject, terminalStates: [Schema.State], events: Observable<Schema.Event>) -> Observable<Schema.State> {
         
         return Observable.create({ observable -> Disposable in
             
@@ -25,7 +25,7 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject : A
 
                 observable.onNext(newState)
                 
-                if newState == terminalState {
+                if terminalStates.contains(newState) {
                     observable.onCompleted()
                     hasTerminated = true
                 }
@@ -83,7 +83,7 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject : A
 
 extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject == Void, Schema.State : Equatable {
     
-    public static func terminatingRx(schema: Schema, terminalState: Schema.State, events: Observable<Schema.Event>) -> Observable<Schema.State> {
+    public static func terminatingRx(schema: Schema, terminalStates: [Schema.State], events: Observable<Schema.Event>) -> Observable<Schema.State> {
         
         return Observable.create({ observable -> Disposable in
             
@@ -96,7 +96,7 @@ extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject == 
                 
                 observable.onNext(newState)
                 
-                if newState == terminalState {
+                if terminalStates.contains(newState) {
                     observable.onCompleted()
                     hasTerminated = true
                 }
