@@ -9,5 +9,5 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => 'https://github.com/aufflick/RxStateMachine.git', :tag => "v#{spec.version}" }
   spec.source_files = 'RxStateMachine/*.{swift}'
   spec.dependency 'RxSwift'
-  spec.dependency 'SwiftyStateMachine'
+  spec.dependency 'SwiftyStateMachine@MarkAufflick'
 end
