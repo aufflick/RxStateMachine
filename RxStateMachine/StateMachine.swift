@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import SwiftyStateMachine_MarkAufflick
 import RxSwift
+import SwiftyStateMachine_MarkAufflick
 
 extension StateMachine where Schema : StateMachineSchemaType, Schema.Subject : Any, Schema.State : Equatable {
     
